@@ -19,11 +19,19 @@ function App() {
     setItems((prev) => prev.filter((item) => item.id !== id));
   };
 
+  const toggleItem = (id: string) => {
+    setItems((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, checked: !item.checked } : item,
+      ),
+    );
+  };
+
   return (
     <div className='app'>
       <h1>Shopping List</h1>
       <AddItem onAdd={addItem} existingItems={items} />
-      <ShoppingList items={items} onDelete={deleteItem} />
+      <ShoppingList items={items} onDelete={deleteItem} onToggle={toggleItem} />
     </div>
   );
 }

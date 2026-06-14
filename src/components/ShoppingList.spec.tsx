@@ -12,6 +12,7 @@ describe("<ShoppingList />", () => {
           { id: "2", name: "Bread", checked: false },
         ]}
         onDelete={() => {}}
+        onToggle={() => {}}
       />,
     );
 
@@ -20,7 +21,7 @@ describe("<ShoppingList />", () => {
   });
 
   it("shows a message when the list is empty", () => {
-    render(<ShoppingList items={[]} onDelete={() => {}} />);
+    render(<ShoppingList items={[]} onDelete={() => {}} onToggle={() => {}} />);
 
     expect(screen.getByText("Your list is empty.")).toBeInTheDocument();
   });
@@ -33,6 +34,7 @@ describe("<ShoppingList />", () => {
       <ShoppingList
         items={[{ id: "1", name: "Apples", checked: false }]}
         onDelete={onDelete}
+        onToggle={() => {}}
       />,
     );
 

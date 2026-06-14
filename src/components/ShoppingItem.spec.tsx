@@ -9,6 +9,7 @@ describe("<ShoppingItem />", () => {
       <ShoppingItem
         item={{ id: "1", name: "Apples", checked: false }}
         onDelete={() => {}}
+        onToggle={() => {}}
       />,
     );
 
@@ -23,11 +24,42 @@ describe("<ShoppingItem />", () => {
       <ShoppingItem
         item={{ id: "1", name: "Apples", checked: false }}
         onDelete={onDelete}
+        onToggle={() => {}}
       />,
     );
 
     await user.click(screen.getByTestId("delete-item-button"));
 
     expect(onDelete).toHaveBeenCalledWith("1");
+  });
+
+  it("calls onToggle with the item id when checkbox is clicked", async () => {
+    const onToggle = vi.fn();
+    const user = userEvent.setup();
+
+    render(
+      <ShoppingItem
+        item={{ id: "1", name: "Apples", checked: false }}
+        onDelete={() => {}}
+        onToggle={onToggle}
+      />,
+    );
+
+    await user.click(screen.getByTestId("toggle-item-checkbox"));
+
+    expect(onToggle).toHaveBeenCalledWith("1");
+  });
+
+  it("reflects the checked state of the item", () => {
+    render(
+      <ShoppingItem
+        item={{ id: "1", name: "Apples", checked: true }}
+        onDelete={() => {}}
+        onToggle={() => {}}
+      />,
+    );
+
+    const checkbox = screen.getByTestId("toggle-item-checkbox");
+    expect(checkbox).toBeChecked();
   });
 });
