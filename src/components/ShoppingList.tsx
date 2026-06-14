@@ -1,5 +1,6 @@
 import type { ShoppingItem as ShoppingItemType } from "../types";
 import { ShoppingItem } from "./ShoppingItem";
+import "./ShoppingList.css";
 
 type Props = {
   items: ShoppingItemType[];
@@ -10,11 +11,11 @@ type Props = {
 
 export const ShoppingList = ({ items, onDelete, onToggle, onMove }: Props) => {
   if (items.length === 0) {
-    return <p>Your list is empty.</p>;
+    return <p className='shopping-list-empty'>Your list is empty.</p>;
   }
 
   return (
-    <ul>
+    <ul className='shopping-list'>
       {items.map((item, index) => (
         <ShoppingItem
           key={item.id}

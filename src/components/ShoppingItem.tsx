@@ -1,4 +1,5 @@
 import type { ShoppingItem as ShoppingItemType } from "../types";
+import "./ShoppingItem.css";
 
 type Props = {
   item: ShoppingItemType;
@@ -18,13 +19,14 @@ export const ShoppingItem = ({
   isLast,
 }: Props) => {
   return (
-    <li>
-      <label>
+    <li className='shopping-item'>
+      <label className='shopping-item-label'>
         <input
           type='checkbox'
           checked={item.checked}
           onChange={() => onToggle(item.id)}
           data-testid='toggle-item-checkbox'
+          className='shopping-item-checkbox'
         />
         <span
           style={{ textDecoration: item.checked ? "line-through" : "none" }}

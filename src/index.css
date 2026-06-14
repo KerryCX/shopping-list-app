@@ -1,0 +1,35 @@
+:root {
+  /* Colors */
+  --color-primary: rgb(77, 170, 186); /* teal - header, accents */
+  --color-secondary: rgb(117, 183, 67); /* green - item cards */
+  --color-button: rgb(51, 113, 138); /* darker blue - buttons */
+  --color-text: rgb(33, 33, 33); /* near-black, not pure black */
+  --color-text-on-dark: rgb(255, 255, 255);
+  --color-background: rgb(255, 255, 255);
+  --color-border: rgb(77, 170, 186);
+  --color-error: rgb(198, 40, 40);
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+
+  /* Border radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-background);
+}

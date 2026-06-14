@@ -2,6 +2,7 @@ import type { ShoppingItem } from "./types";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import { AddItem } from "./components/AddItem";
 import { ShoppingList } from "./components/ShoppingList";
+import "./App.css";
 
 function App() {
   const [items, setItems] = useLocalStorage<ShoppingItem[]>(

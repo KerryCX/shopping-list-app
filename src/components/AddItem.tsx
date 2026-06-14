@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { ShoppingItem } from "../types";
+import "./AddItem.css";
 
 type Props = {
   onAdd: (name: string) => void;
@@ -33,18 +34,24 @@ export const AddItem = ({ onAdd, existingItems }: Props) => {
   };
 
   return (
-    <div>
-      <input
-        type='text'
-        placeholder='e.g. bananas'
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        data-testid='input'
-      />
-      <button onClick={handleAdd} data-testid='add-item-button'>
-        Add
-      </button>
-      {error && <p data-testid='error-message'>{error}</p>}
+    <div className='add-item'>
+      <div className='add-item-row'>
+        <input
+          type='text'
+          placeholder='e.g. bananas'
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          data-testid='input'
+        />
+        <button onClick={handleAdd} data-testid='add-item-button'>
+          Add
+        </button>
+      </div>
+      {error && (
+        <p className='add-item-error' data-testid='error-message'>
+          {error}
+        </p>
+      )}
     </div>
   );
 };
