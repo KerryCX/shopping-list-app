@@ -15,11 +15,15 @@ function App() {
     setItems((prev) => [...prev, newItem]);
   };
 
+  const deleteItem = (id: string) => {
+    setItems((prev) => prev.filter((item) => item.id !== id));
+  };
+
   return (
     <div className='app'>
       <h1>Shopping List</h1>
       <AddItem onAdd={addItem} existingItems={items} />
-      <ShoppingList items={items} />
+      <ShoppingList items={items} onDelete={deleteItem} />
     </div>
   );
 }

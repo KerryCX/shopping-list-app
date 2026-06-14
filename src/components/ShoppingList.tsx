@@ -1,10 +1,12 @@
-import type { ShoppingItem } from "../types";
+import type { ShoppingItem as ShoppingItemType } from "../types";
+import { ShoppingItem } from "./ShoppingItem";
 
 type Props = {
-  items: ShoppingItem[];
+  items: ShoppingItemType[];
+  onDelete: (id: string) => void;
 };
 
-export const ShoppingList = ({ items }: Props) => {
+export const ShoppingList = ({ items, onDelete }: Props) => {
   if (items.length === 0) {
     return <p>Your list is empty.</p>;
   }
@@ -12,7 +14,7 @@ export const ShoppingList = ({ items }: Props) => {
   return (
     <ul>
       {items.map((item) => (
-        <li key={item.id}>{item.name}</li>
+        <ShoppingItem key={item.id} item={item} onDelete={onDelete} />
       ))}
     </ul>
   );
