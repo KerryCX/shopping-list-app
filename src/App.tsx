@@ -1,10 +1,13 @@
-import { useState } from "react";
 import type { ShoppingItem } from "./types";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 import { AddItem } from "./components/AddItem";
 import { ShoppingList } from "./components/ShoppingList";
 
 function App() {
-  const [items, setItems] = useState<ShoppingItem[]>([]);
+  const [items, setItems] = useLocalStorage<ShoppingItem[]>(
+    "shopping-list",
+    [],
+  );
 
   const addItem = (name: string) => {
     const newItem: ShoppingItem = {
