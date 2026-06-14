@@ -4,9 +4,19 @@ type Props = {
   item: ShoppingItemType;
   onDelete: (id: string) => void;
   onToggle: (id: string) => void;
+  onMove: (id: string, direction: "up" | "down") => void;
+  isFirst: boolean;
+  isLast: boolean;
 };
 
-export const ShoppingItem = ({ item, onDelete, onToggle }: Props) => {
+export const ShoppingItem = ({
+  item,
+  onDelete,
+  onToggle,
+  onMove,
+  isFirst,
+  isLast,
+}: Props) => {
   return (
     <li>
       <label>
@@ -22,6 +32,22 @@ export const ShoppingItem = ({ item, onDelete, onToggle }: Props) => {
           {item.name}
         </span>
       </label>
+      <button
+        onClick={() => onMove(item.id, "up")}
+        disabled={isFirst}
+        data-testid='move-up-button'
+        aria-label={`Move ${item.name} up`}
+      >
+        ↑
+      </button>
+      <button
+        onClick={() => onMove(item.id, "down")}
+        disabled={isLast}
+        data-testid='move-down-button'
+        aria-label={`Move ${item.name} down`}
+      >
+        ↓
+      </button>
       <button
         onClick={() => onDelete(item.id)}
         data-testid='delete-item-button'
