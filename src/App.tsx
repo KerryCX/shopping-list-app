@@ -1,16 +1,25 @@
+import { useState } from "react";
 import type { ShoppingItem } from "./types";
+import { AddItem } from "./components/AddItem";
 import { ShoppingList } from "./components/ShoppingList";
 
-const sampleItems: ShoppingItem[] = [
-  { id: "1", name: "Apples", checked: false },
-  { id: "2", name: "Bread", checked: false },
-];
-
 function App() {
+  const [items, setItems] = useState<ShoppingItem[]>([]);
+
+  const addItem = (name: string) => {
+    const newItem: ShoppingItem = {
+      id: crypto.randomUUID(),
+      name,
+      checked: false,
+    };
+    setItems((prev) => [...prev, newItem]);
+  };
+
   return (
     <div className='app'>
       <h1>Shopping List</h1>
-      <ShoppingList items={sampleItems} />
+      <AddItem onAdd={addItem} existingItems={items} />
+      <ShoppingList items={items} />
     </div>
   );
 }
