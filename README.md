@@ -1,21 +1,21 @@
 # Shopping List App
 
-A shopping list app built with React, TypeScript, and Vite — featuring item
+A shopping list app built with React, TypeScript, and Vite, featuring item
 management, persistence, and reordering.
 
 🔗 **Live demo:** [shopping-list.kerryclements.com](https://shopping-list.kerryclements.com)
-📝 **Case study:** [kerryclements.com](https://kerryclements.com)
+📝 **Case study:** [kerryclements.com/portfolio/shopping-list](https://kerryclements.com/portfolio/shopping-list)
 
 ## About
 
-This started as a recruitment coding challenge — a 6-hour timed exercise to
+This started as a recruitment coding challenge: a 6-hour timed exercise to
 build a shopping list app from a set of user stories. This repo is a
 ground-up rebuild for my portfolio, taking the same brief without the time
 constraint, built with my current stack and tested throughout.
 
-See [CASE_STUDY.md](./CASE_STUDY.md) for the full story, including what
-changed from the original attempt and the design decisions made along the
-way.
+Read the [case study](https://kerryclements.com/portfolio/shopping-list) for
+the full story, including what changed from the original attempt and the
+design decisions made along the way.
 
 ## Features
 
@@ -46,4 +46,4 @@ npm run test
 
 ## Licence
 
-MIT — see [LICENSE](./LICENSE) for details.
+MIT. See [LICENSE](./LICENSE) for details.
